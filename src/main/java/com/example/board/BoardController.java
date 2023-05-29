@@ -3,8 +3,12 @@ package com.example.board;
 
 import com.example.board.module.BoardDto;
 import com.example.board.module.BoardEntity;
+import com.example.board.module.BoardVo;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/customers")
@@ -30,7 +34,12 @@ public class BoardController {
         BoardDto dto = new BoardDto();
         dto.setIdx(idx);
         return service.delBoard(dto);
+    }
 
+    @GetMapping
+    public List<BoardVo> selBoardAll(){
+        BoardDto dto = new BoardDto();
+        return service.selBoardAll(dto);
     }
 
 }
