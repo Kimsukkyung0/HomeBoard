@@ -30,6 +30,10 @@
         select * from board
     </select>
 
+    <select id="selById" resultType="BoardVo">
+        select * from board
+        WHERE idx = #{idx}
+    </select>
 
 
 </mapper>

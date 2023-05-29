@@ -14,4 +14,5 @@ public interface BoardMapper {
     int upBoard(BoardDto dto);
     int delBoard(BoardDto dto);
     List<BoardVo> selAll(BoardDto dto);
+    BoardVo selById(BoardDto dto);
 }

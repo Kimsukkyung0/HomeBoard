@@ -42,4 +42,11 @@ public class BoardController {
         return service.selBoardAll(dto);
     }
 
+    @GetMapping("/{idx}")
+    public BoardVo selById(@PathVariable int idx){
+        BoardDto dto = new BoardDto();
+        dto.setIdx(idx);
+        return service.selById(dto);
+    }
+
 }
