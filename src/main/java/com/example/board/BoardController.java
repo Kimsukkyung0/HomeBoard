@@ -2,25 +2,35 @@ package com.example.board;
 
 
 import com.example.board.module.BoardDto;
+import com.example.board.module.BoardEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/customers")
 public class BoardController {
 
-    BoardService service;
+    private final BoardService service;
 
     @Autowired
-    public BoardController(){
+    public BoardController(BoardService service){
         this.service = service;
     }
 
-    public int insBoard(BoardDto dto){
+    @PostMapping
+    public int insBoard(@RequestBody BoardDto dto){
         return service.insBoard(dto);
     }
 
+    @PutMapping
+    public int upBoard(@RequestBody BoardDto dto){return service.upBoard(dto);}
 
+    @DeleteMapping("/{idx}")
+    public int delBoard (@PathVariable int idx){
+        BoardDto dto = new BoardDto();
+        dto.setIdx(idx);
+        return service.delBoard(dto);
+
+    }
 
 }

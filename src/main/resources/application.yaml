@@ -1,4 +1,9 @@
 
+#my batis config
+mybatis:
+  type-aliases-package: com.example.board
+  mapper-locations: mappers/**/*.xml
+
 spring:
   servlet:
     multipart:
@@ -13,7 +18,3 @@ spring:
     username : root
     password : green502
 
-#my batis config
-mybatis:
-  type-aliases-package: com.example.board
-  mapper-locations: mapper/**/*.xml

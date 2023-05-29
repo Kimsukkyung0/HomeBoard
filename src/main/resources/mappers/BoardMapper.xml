@@ -3,11 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Green.com.board">
+<mapper namespace="com.example.board.BoardMapper">
     <insert id="insBoard" parameterType="BoardDto">
         INSERT INTO board
-        (NAME,age,job,address,mobile)
+        (name,age,job,address,mobile)
         VALUES
-        (NAME=#{NAME},age=${age},job=#{job},address=#{address},mobile=#{mobile})
+        (#{name},#{age},#{job},#{address},#{mobile})
     </insert>
+
+    <update id="upBoard" parameterType="BoardDto">
+        UPDATE board
+        SET name = #{name}
+        , age = ${age}
+        , job = #{job}
+        , address = #{address}
+        , mobile = #{mobile}
+        WHERE idx = ${idx}
+    </update>
+
+    <delete id="delBoard" >
+        Delete from board
+        Where idx = #{idx}
+    </delete>
+
+    <select id="selAll" resultType="BoardDto">
+        select * from board
+    </select>
+
 </mapper>
