@@ -1,9 +1,8 @@
 package com.example.board;
 
 
-import com.example.board.module.BoardDto;
-import com.example.board.module.BoardEntity;
-import com.example.board.module.BoardVo;
+import com.example.board.model.BoardDto;
+import com.example.board.model.BoardVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

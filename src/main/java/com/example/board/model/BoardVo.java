@@ -1,8 +1,7 @@
-package com.example.board.module;
+package com.example.board.model;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter

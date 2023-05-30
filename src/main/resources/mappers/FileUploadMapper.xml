@@ -4,5 +4,11 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.fileUpload.FileUploadMapper">
-
+    <insert id="inProfilePhoto">
+        INSERT INTO info_file
+        SET fIdx=#{f_idx}
+            , path=#{path}
+            , uploader=#{uploader}
+            , levelValue=#{level_value}
+    </insert>
 </mapper>
