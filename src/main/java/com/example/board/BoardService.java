@@ -21,7 +21,10 @@ public class BoardService {
     }
     public int upBoard(BoardDto dto){return mapper.upBoard(dto);}
     public int delBoard(BoardDto dto){return mapper.delBoard(dto);}
-    public List<BoardVo> selBoardAll(BoardDto dto){return mapper.selAll(dto);}
+    public List<BoardVo> selBoardAllPaging(BoardDto dto){
+        dto.setStartIdx((dto.getPage()-1)*dto.getRow());
+        return mapper.selAllPaging(dto);
+    }
 
     public BoardVo selById(BoardDto dto) {return mapper.selById(dto);}
 

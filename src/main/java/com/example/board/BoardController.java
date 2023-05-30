@@ -4,6 +4,7 @@ package com.example.board;
 import com.example.board.module.BoardDto;
 import com.example.board.module.BoardEntity;
 import com.example.board.module.BoardVo;
+import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,9 +38,12 @@ public class BoardController {
     }
 
     @GetMapping
-    public List<BoardVo> selBoardAll(){
+    public List<BoardVo> selBoardAll(@RequestParam (defaultValue = "40") int row,
+                                     @RequestParam @Min(1) int page){
         BoardDto dto = new BoardDto();
-        return service.selBoardAll(dto);
+        dto.setPage(page);
+        dto.setRow(row);
+        return service.selBoardAllPaging(dto);
     }
 
     @GetMapping("/{idx}")

@@ -26,8 +26,10 @@
         Where idx = #{idx}
     </delete>
 
-    <select id="selAll" resultType="BoardVo">
+    <select id="selAllPaging" resultType="BoardVo">
         select * from board
+        ORDER BY idx DESC
+        LIMIT #{startIdx},#{row}
     </select>
 
     <select id="selById" resultType="BoardVo">
