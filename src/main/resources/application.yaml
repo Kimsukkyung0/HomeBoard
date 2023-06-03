@@ -1,7 +1,7 @@
 
 #my batis config
 mybatis:
-  type-aliases-package: com.example.board
+  type-aliases-package: com.example
   mapper-locations: mappers/**/*.xml
 
 spring:

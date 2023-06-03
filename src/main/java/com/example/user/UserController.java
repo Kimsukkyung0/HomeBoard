@@ -3,6 +3,7 @@ package com.example.user;
 
 import com.example.user.model.UserDto;
 import com.example.user.model.UserVo;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/customers")
+@Tag(name="회원", description = "")
 public class UserController {
 
     private final UserService service;

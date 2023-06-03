@@ -24,7 +24,6 @@ public class UserService {
         dto.setStartIdx((dto.getPage()-1)*dto.getRow());
         return mapper.selAllUsers(dto);
     }
-
     public UserVo selById(UserDto dto) {return mapper.selById(dto);}
 
 }
