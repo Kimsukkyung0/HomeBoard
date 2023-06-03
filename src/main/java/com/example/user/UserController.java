@@ -1,10 +1,10 @@
 package com.example.user;
 
 
-import com.example.user.model.UserDto;
-import com.example.user.model.UserVo;
+import com.example.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,34 +22,39 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
-    public int insBoard(@RequestBody UserDto dto){
+    @PostMapping@Tag(name="회원가입",description = "")
+    public int insBoard(@RequestBody UserInsDto dto){
         return service.insBoard(dto);
     }
 
-    @PutMapping
-    public int upBoard(@RequestBody UserDto dto){return service.upBoard(dto);}
+    @PutMapping@Tag(name="회원정보수정",description = "")
+    public int upUserInfo(@RequestBody UserUpInfoDto dto, @RequestParam String upw) {
+        UserDto uDto = new UserDto();
+        uDto.setUpw(upw);
+        return service.upUserInfo(uDto);
+    }
 
-    @DeleteMapping("/{idx}")
+    @DeleteMapping("/{idx}")@Tag(name="회원탈퇴",description = "")
     public int delBoard (@PathVariable int idx){
-        UserDto dto = new UserDto();
-        dto.setIdx(idx);
-        return service.delBoard(dto);
+        UserEntity entity = new UserEntity();
+        entity.setIdx(idx);
+        return service.delBoard(entity);
     }
 
     @GetMapping
     public List<UserVo> selBoardAll(@RequestParam (defaultValue = "40") int row,
                                     @RequestParam @Min(1) int page){
-        UserDto dto = new UserDto();
-        dto.setPage(page);
-        dto.setRow(row);
-        return service.selBoardAllPaging(dto);
+        UserIdx uidx = new UserIdx();
+        uidx.setPage(page);
+        uidx.setRow(row);
+        return service.selBoardAllPaging(uidx);
     }
 
     @GetMapping("/{idx}")
     public UserVo selById(@PathVariable int idx){
+        UserEntity entity = new UserEntity();
         UserDto dto = new UserDto();
-        dto.setIdx(idx);
+        entity.setIdx(idx);
         return service.selById(dto);
     }
 

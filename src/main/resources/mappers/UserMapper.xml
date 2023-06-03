@@ -6,19 +6,19 @@
 <mapper namespace="com.example.user.UserMapper">
     <insert id="insUser" >
         INSERT INTO user
-        (name,age,job,address,mobile)
+        (name,uid,upw,age,job,address,mobile)
         VALUES
-        (#{name},#{age},#{job},#{address},#{mobile})
+        (#{name},#{uid},#{upw},#{age},#{job},#{address},#{mobile})
     </insert>
 
-    <update id="upUser" parameterType="UserDto">
+    <update id="upUserInfo">
         UPDATE user
-        SET name = #{name}
-        , age = ${age}
-        , job = #{job}
+        SET
+         job = #{job}
         , address = #{address}
         , mobile = #{mobile}
-        WHERE idx = ${idx}
+        , editedAt = current_timestamp()
+        WHERE upw = #{upw} AND idx = #{idx}
     </update>
 
     <delete id="delUser" >
