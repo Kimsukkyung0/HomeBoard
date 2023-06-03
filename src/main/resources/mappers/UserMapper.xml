@@ -3,6 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.u.UserMapper">
+<mapper namespace="com.example.user.UserMapper">
+    <insert id="insUser" parameterType="UserDto">
+        INSERT INTO User
+        (name,age,job,address,mobile)
+        VALUES
+        (#{name},#{age},#{job},#{address},#{mobile})
+    </insert>
+
+    <update id="upUser" parameterType="UserDto">
+        UPDATE User
+        SET name = #{name}
+        , age = ${age}
+        , job = #{job}
+        , address = #{address}
+        , mobile = #{mobile}
+        WHERE idx = ${idx}
+    </update>
+
+    <delete id="delUser" >
+        Delete from User
+        Where idx = #{idx}
+    </delete>
+
+    <select id="selAllUsers" resultType="UserVo">
+        select * from User
+        ORDER BY idx DESC
+        LIMIT #{startIdx},#{row}
+    </select>
+
+    <select id="selById" resultType="UserVo">
+        select * from User
+        WHERE idx = #{idx}
+    </select>
+
 
 </mapper>
