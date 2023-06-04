@@ -1,6 +1,7 @@
 package com.example.user;
 
 import com.example.user.model.*;
+import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +16,14 @@ public class UserService {
         this.mapper = mapper;
     }
     public int insBoard(UserInsDto dto){
+        CommonUtils utils = new CommonUtils();
+        dto.setUpw(utils.encodeSha256(dto.getUpw()));
         return mapper.insUser(dto);
     }
 
     public int upUserInfo(UserUpInfoDto iDto){
-//        UserDto uDto = new UserDto();
-//        iDto.setIdx(uDto.getIdx()); //Got idx from controller already set and put
-//        iDto.setAddress(uDto.getAddress());
-//        iDto.setJob(uDto.getJob());
-//        iDto.setMobile(uDto.getMobile());
+        UserDto uDto = new UserDto();
+//
 //        iDto.setUpw(uDto.getUpw());
         return mapper.upUserInfo(iDto);
     }
