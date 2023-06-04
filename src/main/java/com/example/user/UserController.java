@@ -57,6 +57,7 @@ public class UserController {
         return service.selById(dto);
     }
 
+    @Tag(name="회원프로필사진 업로드", description = "")
     @PatchMapping(name="/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public int patchUserPhoto(@RequestParam int idx, @RequestPart MultipartFile pic){
         UserUpPhotoDto pDto = new UserUpPhotoDto();

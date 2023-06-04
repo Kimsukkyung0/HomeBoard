@@ -18,3 +18,5 @@ spring:
     username : root
     password : green502
 
+file:
+  dir: D:/download/

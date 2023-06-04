@@ -14,4 +14,5 @@ public interface UserMapper {
     List<UserVo> selAllUsers(UserIdx idx);
     UserVo selById(UserDto dto);
     int upUserPhoto(UserUpPhotoDto pDto);
+
 }
