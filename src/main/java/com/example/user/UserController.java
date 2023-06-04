@@ -4,9 +4,10 @@ package com.example.user;
 import com.example.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -56,4 +57,10 @@ public class UserController {
         return service.selById(dto);
     }
 
+    @PatchMapping(name="/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public int patchUserPhoto(@RequestParam int idx, @RequestPart MultipartFile pic){
+        UserUpPhotoDto pDto = new UserUpPhotoDto();
+        pDto.setIdx(idx);
+        return service.upUserPhotoDto(pic,pDto);
+    }
 }

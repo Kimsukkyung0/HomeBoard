@@ -36,4 +36,10 @@
         select * from user
         WHERE idx = #{idx}
     </select>
+
+    <update id="upUserPhoto">
+        UPDATE user
+        SET main_pic = #{mainPic}
+        WHERE idx=#{idx}
+    </update>
 </mapper>
