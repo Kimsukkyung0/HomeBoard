@@ -27,11 +27,9 @@ public class UserController {
         return service.insBoard(dto);
     }
 
-    @PutMapping@Tag(name="회원정보수정",description = "")
-    public int upUserInfo(@RequestBody UserUpInfoDto dto, @RequestParam String upw) {
-        UserDto uDto = new UserDto();
-        uDto.setUpw(upw);
-        return service.upUserInfo(uDto);
+    @PatchMapping@Tag(name="회원정보수정",description = "")
+    public int upUserInfo(@RequestBody UserUpInfoDto iDto) {
+        return service.upUserInfo(iDto);
     }
 
     @DeleteMapping("/{idx}")@Tag(name="회원탈퇴",description = "")

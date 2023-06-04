@@ -8,4 +8,5 @@ public class UserUpInfoDto {
     private String address;
     private String mobile;
     private int idx;
+    private String upw;
 }

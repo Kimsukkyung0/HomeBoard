@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     int insUser(UserInsDto dto);
-    int upUserInfo(UserDto dto);
+    int upUserInfo(UserUpInfoDto idto);
     int delUser(UserEntity entity);
     List<UserVo> selAllUsers(UserIdx idx);
     UserVo selById(UserDto dto);

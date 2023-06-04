@@ -17,10 +17,15 @@ public class UserService {
     public int insBoard(UserInsDto dto){
         return mapper.insUser(dto);
     }
-    public int upUserInfo(UserDto uDto){
-        UserUpInfoDto iDto = new UserUpInfoDto();
-        iDto.setIdx(uDto.getIdx());
-        return mapper.upUserInfo(uDto);
+
+    public int upUserInfo(UserUpInfoDto iDto){
+//        UserDto uDto = new UserDto();
+//        iDto.setIdx(uDto.getIdx()); //Got idx from controller already set and put
+//        iDto.setAddress(uDto.getAddress());
+//        iDto.setJob(uDto.getJob());
+//        iDto.setMobile(uDto.getMobile());
+//        iDto.setUpw(uDto.getUpw());
+        return mapper.upUserInfo(iDto);
     }
     public int delBoard(UserEntity entity){return mapper.delUser(entity);}
     public List<UserVo> selBoardAllPaging(UserIdx uidx){
