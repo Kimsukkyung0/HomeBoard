@@ -28,7 +28,7 @@ public class UserController {
         return service.insBoard(dto);
     }
 
-    @PatchMapping@Tag(name="회원정보수정",description = "")
+    @PatchMapping("/edit")
     public int upUserInfo(@RequestBody UserUpInfoDto iDto) {
         return service.upUserInfo(iDto);
     }
@@ -57,9 +57,9 @@ public class UserController {
         return service.selById(dto);
     }
 
-    @Tag(name="회원프로필사진 업로드", description = "")
-    @PatchMapping(name="/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public int patchUserPhoto(@RequestParam int idx, @RequestPart MultipartFile pic){
+    @Tag(name="회원프로필사진 업로드", description = "프로필사진만 업로드")
+    @PatchMapping(name="{/idx}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public int patchUserPhoto(@RequestPart int idx, @RequestPart MultipartFile pic){
         UserUpPhotoDto pDto = new UserUpPhotoDto();
         pDto.setIdx(idx);
         return service.upUserPhotoDto(pic,pDto);
