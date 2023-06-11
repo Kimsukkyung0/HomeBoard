@@ -39,7 +39,7 @@ public class UserService {
     }
     public UserVo selById(UserDto dto) {return mapper.selById(dto);}
 
-    public int upUserPhotoDto(MultipartFile pic,UserUpPhotoDto pDto){
+    public int upUserPhoto(MultipartFile pic,UserUpPhotoDto pDto){
         // user/pk/uuid.jpg
         // user/1/abcd.jpg
         String upperPath = String.format("/user/%d",pDto.getIdx());
