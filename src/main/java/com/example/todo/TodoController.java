@@ -1,11 +1,9 @@
 package com.example.todo;
 
 import com.example.todo.model.TodoInsDto;
+import com.example.todo.model.TodoUpdDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/todo")
@@ -21,4 +19,11 @@ public class TodoController {
     public int PostTodo(@RequestBody TodoInsDto dto){
         return service.InsTodo(dto);
     }
+    @PutMapping("{tIdx}")
+    public int PutTodo(@PathVariable int tIdx ,@RequestBody TodoUpdDto dto){
+//        TodoUpdDto dto = new TodoUpdDto();
+        dto.setTIdx(tIdx);
+        return service.updTodo(dto);
+    }
+
 }

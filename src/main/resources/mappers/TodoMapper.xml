@@ -10,4 +10,11 @@
     , completed = #{completed}
     , idx=#{idx}
 </insert>
+
+    <update id="updTodo">
+        UPDATE todo
+        set completed=#{completed}
+        , ctnt = #{ctnt}
+        where t_idx=#{tIdx}
+    </update>
 </mapper>

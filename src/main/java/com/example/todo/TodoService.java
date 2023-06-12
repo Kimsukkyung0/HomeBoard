@@ -1,6 +1,7 @@
 package com.example.todo;
 
 import com.example.todo.model.TodoInsDto;
+import com.example.todo.model.TodoUpdDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,7 @@ public class TodoService {
         return mapper.insTodo(dto);
 
     }
+    public int updTodo(TodoUpdDto dto){
+        return mapper.updTodo(dto);
+    };
 }
