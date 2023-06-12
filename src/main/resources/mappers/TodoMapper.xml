@@ -8,6 +8,6 @@
     INSERT INTO todo
     SET ctnt = #{ctnt}
     , completed = #{completed}
-    WHERE idx=#{idx}
+    , idx=#{idx}
 </insert>
 </mapper>
