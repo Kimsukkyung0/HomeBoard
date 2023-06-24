@@ -19,7 +19,7 @@ public class TodoController {
     public int PostTodo(@RequestBody TodoInsDto dto){
         return service.InsTodo(dto);
     }
-    @PutMapping("{tIdx}")
+    @PutMapping("/{tIdx}")
     public int PutTodo(@PathVariable int tIdx ,@RequestBody TodoUpdDto dto){
 //        TodoUpdDto dto = new TodoUpdDto();
         dto.setTIdx(tIdx);
