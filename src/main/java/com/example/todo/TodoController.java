@@ -24,6 +24,6 @@ public class TodoController {
 //        TodoUpdDto dto = new TodoUpdDto();
         dto.setTIdx(tIdx);
         return service.updTodo(dto);
-    }
+    }     
 
 }
